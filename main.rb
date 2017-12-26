@@ -1,6 +1,6 @@
 require 'discordrb'
 
-include 'modules/main'
+require './modules/main.rb'
 
 
 bot = Discordrb::Bot.new token: ENV['bot_token'], client_id: ENV['client_id']
