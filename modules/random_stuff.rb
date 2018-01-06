@@ -18,12 +18,17 @@ module Bot
         ['head','tails'].sample
       end 
 
-      command :roll do 
-        "rolling a d6: #{(rand 5) + 1}"
+      command :roll do |event, *args|
+        die = args.join.match(/d(\d+)/) || ['d6','6']
+        "rolling a #{die[0]}: #{(rand die[1].to_i) + 1}"
       end 
 
       command :decide do |event, *args|
-        args.sample
+        if args.include?('or')
+          args.join(' ').split('or').sample
+        else
+          args.sample
+        end
       end
 
     end
