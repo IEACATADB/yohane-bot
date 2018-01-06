@@ -25,7 +25,7 @@ module Bot
   end
 
   bot.command :ping do |event|
-   Time.now - event.timestamp
+   "#{(Time.now - event.timestamp)*1000.0} ms."
   end 
 
 
