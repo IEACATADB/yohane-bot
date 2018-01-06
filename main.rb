@@ -24,6 +24,10 @@ module Bot
     bot.invite_url
   end
 
+  bot.command :ping do |event|
+   Time.now - event.timestamp
+  end 
+
 
   bot.run
 
