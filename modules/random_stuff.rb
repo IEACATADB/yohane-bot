@@ -25,7 +25,7 @@ module Bot
 
       command :decide do |event, *args|
         if args.include?('or')
-          args.join(' ').split('or').sample
+          args.join(' ').split(/\sor\s/i).sample
         else
           args.sample
         end
