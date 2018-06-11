@@ -1,6 +1,5 @@
 module Bot
   module DiscordCommands
-    # Commands to manage game creation and flow
     module Random
       extend Discordrb::Commands::CommandContainer
 
@@ -24,7 +23,7 @@ module Bot
       end 
 
       command :decide do |event, *args|
-        if args.include?('or')
+        if args.map(&:upcase).include?('OR')
           args.join(' ').split(/\sor\s/i).sample
         else
           args.sample
