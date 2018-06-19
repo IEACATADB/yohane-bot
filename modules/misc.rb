@@ -7,6 +7,10 @@ module Bot
                 '¯\_(ツ)_/¯'
             end
 
+            command :scream do
+                'a' * (rand 10..60)
+            end
+
         end
     end
 end
