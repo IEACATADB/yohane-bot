@@ -16,12 +16,13 @@ module Bot
       end 
 
       command :psa do |_event, *args|
-          '📣' + args.map{|word|
-              word.downcase.tr('/a-z/','/🇦-🇿/').chars.join(' ')
-          }.join(' ')
 
-              # '📣' + args.first.downcase.tr('/a-z/','/🇦-🇿/').chars.join(' ')
-              
+        mutated = args.map do |word|
+          word.match(/<\S*>/)? word :
+          word.downcase.tr('/a-z/','/🇦-🇿/').chars.join(' ')
+        end
+
+        '📣' + mutated.join('🔵').gsub(/(<\S*>)🔵|🔵(<\S*>)/) {|i| i.tr('🔵',' ')}
       end
     end 
   end

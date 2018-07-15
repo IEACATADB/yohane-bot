@@ -30,7 +30,7 @@ module Bot
         end
       end
 
-      command :decide do |event, *args|
+      command :'decide!' do |event, *args|
         if args.map(&:upcase).include?('OR')
           args.join(' ').split(/\sor\s/i).sample
         else
