@@ -4,7 +4,7 @@ module Bot
       extend Discordrb::Commands::CommandContainer
 
       @symbols = /[%+\-*\/^]|[*]{2}/
-      @regex = /\(?(\d+)\s?(#{@symbols})\s?(\d+)\)?/x
+      @regex = /\(?(\d+|\d+[.,]?\d+)\s?(#{@symbols})\s?((\d+[.,]?\d+)|\d+)\)?/
     
       def self.math input 
         pass = input.gsub(@regex) {|statement| calculate statement}
