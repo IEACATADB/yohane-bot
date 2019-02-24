@@ -20,6 +20,14 @@ module Bot
     event.respond lines.sample
   end
 
+ 
+  bot.message(contains: /(i guess)$/i) do |event|
+    lines = [
+    ':hagumiAngery:'
+    ]
+    event.respond lines.sample
+  end
+ 
   bot.command :invite_url do
     bot.invite_url
   end
